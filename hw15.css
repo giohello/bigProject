@@ -1,0 +1,147 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.h11 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-top: 70px;
+    color: #2c3e50;
+}
+
+.choice {
+    width: 600px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    margin-top: 30px;
+    transition: all 0.3s ease;
+}
+
+.choice:hover {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.choice label {
+    font-size: 22px;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+select, input[type="number"] {
+    font-size: 18px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 10px;
+    transition: border-color 0.3s ease;
+}
+
+select:focus, input[type="number"]:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+input[type="number"] {
+    max-width: 300px;
+    margin-top: 15px;
+    display: none;
+}
+
+.person {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+    width: 600px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    margin-top: 30px;
+    transition: all 0.3s ease;
+    
+}
+.person:hover {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+#personImg {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#personName {
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 15px;
+    color: #34495e;
+}
+
+#money {
+    font-size: 32px;
+    font-weight: 700;
+    margin-top: 30px;
+    background: linear-gradient(180deg, #2ecc71, #1abc9c);
+    color: white;
+    width: 600px;
+    height: 70px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 10px;
+}
+
+.items {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px;
+    gap: 50px;
+    justify-content: center;
+}
+
+.item {
+    width: 20%;
+    height: 300px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.item:hover {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
