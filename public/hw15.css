@@ -11,6 +11,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f4f9;
     color: #333;
+    position: relative;
 }
 
 .h11 {
@@ -196,4 +197,69 @@ input[type="number"] {
 
 .item:hover {
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+#authForm input {
+    font-size: 18px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 10px;
+    transition: border-color 0.3s ease;
+}
+
+#authForm input:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+#authForm button {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 10px;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+.auth-btn {
+    margin-top: 30px;
+    background: linear-gradient(180deg, #3aa9f3, #1d83c7);
+    color: white;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    transition: background 0.3s ease, transform 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.auth-btn:hover {
+    background: linear-gradient(180deg, #3aa9f3, #1d83c7);
+    transform: translateY(-2px);
+}
+
+.back-btn {
+    margin: 20px;
+    align-self: flex-start;
+    text-decoration: none;
+    background: linear-gradient(180deg, #95a5a6, #7f8c8d);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background 0.3s ease, transform 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.back-btn:hover {
+    background: linear-gradient(180deg, #7f8c8d, #707b7c);
+    transform: translateY(-1px);
 }

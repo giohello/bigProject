@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Authorization</title>
+  <link rel="stylesheet" href="hw15.css">
+  <link rel="shortcut icon" href="./img/3692056.png" type="image/x-icon">
+</head>
+<body>
+  <h2 class="h11">User Authentication</h2>
+
+  <div class="choice" id="authForm">
+    <input type="text" id="username" placeholder="Username (if you are registering)">
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+
+    <button onclick="register()" style="background: linear-gradient(180deg, #3aa9f3, #1d83c7);">Register</button>
+    <button onclick="login()" style="background: linear-gradient(180deg, #2ecc71, #1abc9c)">Login</button>
+    <a href="index.html" class="back-btn">Back to Homepage</a>
+    <p id="authMsg" style="margin-top: 15px; font-weight: 500;"></p>
+  </div>
+
+  <script src="auth.js"></script>
+</body>
+</html>
