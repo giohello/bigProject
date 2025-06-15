@@ -8,13 +8,14 @@
     <link rel="shortcut icon" href="./img/3692056.png" type="image/x-icon">
 </head>
 <body>
+    <!-- after buing something the number changes but the fact that you've baught it doesn't carry over to the database, must fix -->
     <a href="auth.html" class="auth-btn">Login / Register</a>
     <div class="choice">
         <label for="people">who's money would you like to spend?</label>
         <div class="moneyNums">
         <select name="people" id="people"> 
             <option value="">--select here--</option>
-            <option value="custom">custom</option>
+            <option value="user" id="userOption">Your Account</option>
             <option value="Elon Musk">Elon Musk $195 billion</option>
             <option value="Jeff Bezos">Jeff Bezos $194 billion</option>
             <option value="Bernard Arnault">Bernard Arnault $180 billion</option>
@@ -41,10 +42,11 @@
             <div>
                 <h3>Water Bottle</h3>
                 <p>$<span id="price1">1</span></p>
+                <p>You own: <span class="ownedAmount" data-id="1">0</span></p>
             </div>
             <div>
                 <button onclick="sell('1')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('1')">buy</button>
             </div>
         </div>
@@ -54,10 +56,11 @@
             <div>
                 <h3>Khachapuri</h3>
                 <p>$<span id="price2">2</span></p>
+                <p>You own: <span class="ownedAmount" data-id="2">0</span></p>
             </div>
             <div>
                 <button onclick="sell('2')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('2')">buy</button>
             </div>
         </div>
@@ -67,10 +70,11 @@
             <div>
                 <h3>Lobiani</h3>
                 <p>$<span id="price3">2</span></p>
+                <p>You own: <span class="ownedAmount" data-id="3">0</span></p>
             </div>
             <div>
                 <button onclick="sell('3')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('3')">buy</button>
             </div>
         </div>
@@ -80,10 +84,11 @@
             <div>
                 <h3>A Pack Of Pepsi</h3>
                 <p>$<span id="price4">5</span></p>
+                <p>You own: <span class="ownedAmount" data-id="4">0</span></p>
             </div>
             <div>
                 <button onclick="sell('4')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('4')">buy</button>
             </div>
         </div>
@@ -93,10 +98,11 @@
             <div>
                 <h3>A Pack Of Cola</h3>
                 <p>$<span id="price5">5</span></p>
+                <p>You own: <span class="ownedAmount" data-id="5">0</span></p>
             </div>
             <div>
                 <button onclick="sell('5')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('5')">buy</button>
             </div>
         </div>
@@ -106,10 +112,11 @@
             <div>
                 <h3>Socks</h3>
                 <p>$<span id="price6">10</span></p>
+                <p>You own: <span class="ownedAmount" data-id="6">0</span></p>
             </div>
             <div>
                 <button onclick="sell('6')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('6')">buy</button>
             </div>
         </div>
@@ -119,10 +126,11 @@
             <div>
                 <h3>Movie Ticket</h3>
                 <p>$<span id="price7">15</span></p>
+                <p>You own: <span class="ownedAmount" data-id="7">0</span></p>
             </div>
             <div>
                 <button onclick="sell('7')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('7')">buy</button>
             </div>
         </div>
@@ -132,10 +140,11 @@
             <div>
                 <h3>Fast Food Meal</h3>
                 <p>$<span id="price8">20</span></p>
+                <p>You own: <span class="ownedAmount" data-id="8">0</span></p>
             </div>
             <div>
                 <button onclick="sell('8')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('8')">buy</button>
             </div>
         </div>
@@ -145,10 +154,11 @@
             <div>
                 <h3>T-Shirt</h3>
                 <p>$<span id="price9">30</span></p>
+                <p>You own: <span class="ownedAmount" data-id="9">0</span></p>
             </div>
             <div>
                 <button onclick="sell('9')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('9')">buy</button>
             </div>
         </div>
@@ -158,10 +168,11 @@
             <div>
                 <h3>Wireless Mouse</h3>
                 <p>$<span id="price10">50</span></p>
+                <p>You own: <span class="ownedAmount" data-id="10">0</span></p>
             </div>
             <div>
                 <button onclick="sell('10')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('10')">buy</button>
             </div>
         </div>
@@ -171,10 +182,11 @@
             <div>
                 <h3>Bluetooth Speaker</h3>
                 <p>$<span id="price11">80</span></p>
+                <p>You own: <span class="ownedAmount" data-id="11">0</span></p>
             </div>
             <div>
                 <button onclick="sell('11')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('11')">buy</button>
             </div>
         </div>
@@ -184,10 +196,11 @@
             <div>
                 <h3>Air Jordans</h3>
                 <p>$<span id="price12">150</span></p>
+                <p>You own: <span class="ownedAmount" data-id="12">0</span></p>
             </div>
             <div>
                 <button onclick="sell('12')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('12')">buy</button>
             </div>
         </div>
@@ -197,10 +210,11 @@
             <div>
                 <h3>Smartwatch</h3>
                 <p>$<span id="price13">300</span></p>
+                <p>You own: <span class="ownedAmount" data-id="13">0</span></p>
             </div>
             <div>
                 <button onclick="sell('13')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('13')">buy</button>
             </div>
         </div>
@@ -210,10 +224,11 @@
             <div>
                 <h3>Gaming Chair</h3>
                 <p>$<span id="price14">500</span></p>
+                <p>You own: <span class="ownedAmount" data-id="14">0</span></p>
             </div>
             <div>
                 <button onclick="sell('14')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('14')">buy</button>
             </div>
         </div>
@@ -223,10 +238,11 @@
             <div>
                 <h3>Drone</h3>
                 <p>$<span id="price15">1,000</span></p>
+                <p>You own: <span class="ownedAmount" data-id="15">0</span></p>
             </div>
             <div>
                 <button onclick="sell('15')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('15')">buy</button>
             </div>
         </div>
@@ -236,10 +252,11 @@
             <div>
                 <h3>Luxury Dinner for Two</h3>
                 <p>$<span id="price16">2,000</span></p>
+                <p>You own: <span class="ownedAmount" data-id="16">0</span></p>
             </div>
             <div>
                 <button onclick="sell('16')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('16')">buy</button>
             </div>
         </div>
@@ -249,10 +266,11 @@
             <div>
                 <h3>Laptop</h3>
                 <p>$<span id="price17">2,500</span></p>
+                <p>You own: <span class="ownedAmount" data-id="17">0</span></p>
             </div>
             <div>
                 <button onclick="sell('17')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('17')">buy</button>
             </div>
         </div>
@@ -262,10 +280,11 @@
             <div>
                 <h3>Pro Bicycle</h3>
                 <p>$<span id="price18">3,500</span></p>
+                <p>You own: <span class="ownedAmount" data-id="18">0</span></p>
             </div>
             <div>
                 <button onclick="sell('18')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('18')">buy</button>
             </div>
         </div>
@@ -275,10 +294,11 @@
             <div>
                 <h3>Designer Handbag</h3>
                 <p>$<span id="price19">5,000</span></p>
+                <p>You own: <span class="ownedAmount" data-id="19">0</span></p>
             </div>
             <div>
                 <button onclick="sell('19')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('19')">buy</button>
             </div>
         </div>
@@ -288,10 +308,11 @@
             <div>
                 <h3>Hot Tub</h3>
                 <p>$<span id="price20">7,500</span></p>
+                <p>You own: <span class="ownedAmount" data-id="20">0</span></p>
             </div>
             <div>
                 <button onclick="sell('20')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('20')">buy</button>
             </div>
         </div>
@@ -301,10 +322,11 @@
             <div>
                 <h3>Rickshaw</h3>
                 <p>$<span id="price21">8,000</span></p>
+                <p>You own: <span class="ownedAmount" data-id="21">0</span></p>
             </div>
             <div>
                 <button onclick="sell('21')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('21')">buy</button>
             </div>
         </div>
@@ -314,10 +336,11 @@
             <div>
                 <h3>Home Gym Equipment</h3>
                 <p>$<span id="price22">9,500</span></p>
+                <p>You own: <span class="ownedAmount" data-id="22">0</span></p>
             </div>
             <div>
                 <button onclick="sell('22')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('22')">buy</button>
             </div>
         </div>
@@ -327,10 +350,11 @@
             <div>
                 <h3>Motorcycle</h3>
                 <p>$<span id="price23">15,000</span></p>
+                <p>You own: <span class="ownedAmount" data-id="23">0</span></p>
             </div>
             <div>
                 <button onclick="sell('23')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('23')">buy</button>
             </div>
         </div>
@@ -340,10 +364,11 @@
             <div>
                 <h3>Diamond Ring</h3>
                 <p>$<span id="price24">30,000</span></p>
+                <p>You own: <span class="ownedAmount" data-id="24">0</span></p>
             </div>
             <div>
                 <button onclick="sell('24')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('24')">buy</button>
             </div>
         </div>
@@ -353,10 +378,11 @@
             <div>
                 <h3>Jet Ski</h3>
                 <p>$<span id="price25">50,000</span></p>
+                <p>You own: <span class="ownedAmount" data-id="25">0</span></p>
             </div>
             <div>
                 <button onclick="sell('25')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('25')">buy</button>
             </div>
         </div>
@@ -366,10 +392,11 @@
             <div>
                 <h3>Luxury Watch</h3>
                 <p>$<span id="price26">75,000</span></p>
+                <p>You own: <span class="ownedAmount" data-id="26">0</span></p>
             </div>
             <div>
                 <button onclick="sell('26')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('26')">buy</button>
             </div>
         </div>
@@ -379,10 +406,11 @@
             <div>
                 <h3>Pickup Truck</h3>
                 <p>$<span id="price27">90,000</span></p>
+                <p>You own: <span class="ownedAmount" data-id="27">0</span></p>
             </div>
             <div>
                 <button onclick="sell('27')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('27')">buy</button>
             </div>
         </div>
@@ -392,10 +420,11 @@
             <div>
                 <h3>Sports Car</h3>
                 <p>$<span id="price28">150,000</span></p>
+                <p>You own: <span class="ownedAmount" data-id="28">0</span></p>
             </div>
             <div>
                 <button onclick="sell('28')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('28')">buy</button>
             </div>
         </div>
@@ -405,10 +434,11 @@
             <div>
                 <h3>Private Island</h3>
                 <p>$<span id="price29">500,000</span></p>
+                <p>You own: <span class="ownedAmount" data-id="29">0</span></p>
             </div>
             <div>
                 <button onclick="sell('29')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('29')">buy</button>
             </div>
         </div>
@@ -418,10 +448,11 @@
             <div>
                 <h3>Small Airplane</h3>
                 <p>$<span id="price30">750,000</span></p>
+                <p>You own: <span class="ownedAmount" data-id="30">0</span></p>
             </div>
             <div>
                 <button onclick="sell('30')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('30')">buy</button>
             </div>
         </div>
@@ -431,10 +462,11 @@
             <div>
                 <h3>Luxury RV</h3>
                 <p>$<span id="price31">900,000</span></p>
+                <p>You own: <span class="ownedAmount" data-id="31">0</span></p>
             </div>
             <div>
                 <button onclick="sell('31')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('31')">buy</button>
             </div>
         </div>
@@ -444,10 +476,11 @@
             <div>
                 <h3>Mansion</h3>
                 <p>$<span id="price32">5,000,000</span></p>
+                <p>You own: <span class="ownedAmount" data-id="32">0</span></p>
             </div>
             <div>
                 <button onclick="sell('32')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('32')">buy</button>
             </div>
         </div>
@@ -457,10 +490,11 @@
             <div>
                 <h3>Super Bowl Ad Spot</h3>
                 <p>$<span id="price33">7,000,000</span></p>
+                <p>You own: <span class="ownedAmount" data-id="33">0</span></p>
             </div>
             <div>
                 <button onclick="sell('33')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('33')">buy</button>
             </div>
         </div>
@@ -470,10 +504,11 @@
             <div>
                 <h3>Yacht</h3>
                 <p>$<span id="price34">10,000,000</span></p>
+                <p>You own: <span class="ownedAmount" data-id="34">0</span></p>
             </div>
             <div>
                 <button onclick="sell('34')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('34')">buy</button>
             </div>
         </div>
@@ -483,10 +518,11 @@
             <div>
                 <h3>Gold Bar</h3>
                 <p>$<span id="price35">20,000,000</span></p>
+                <p>You own: <span class="ownedAmount" data-id="35">0</span></p>
             </div>
             <div>
                 <button onclick="sell('35')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('35')">buy</button>
             </div>
         </div>
@@ -496,10 +532,11 @@
             <div>
                 <h3>Rent Liechtenstein for a year</h3>
                 <p>$<span id="price36">25,000,000</span></p>
+                <p>You own: <span class="ownedAmount" data-id="36">0</span></p>
             </div>
             <div>
                 <button onclick="sell('36')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('36')">buy</button>
             </div>
         </div>
@@ -509,10 +546,11 @@
             <div>
                 <h3>Helicopter</h3>
                 <p>$<span id="price37">35,000,000</span></p>
+                <p>You own: <span class="ownedAmount" data-id="37">0</span></p>
             </div>
             <div>
                 <button onclick="sell('37')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('37')">buy</button>
             </div>
         </div>
@@ -522,10 +560,11 @@
             <div>
                 <h3>Formula 1 Car</h3>
                 <p>$<span id="price38">50,000,000</span></p>
+                <p>You own: <span class="ownedAmount" data-id="38">0</span></p>
             </div>
             <div>
                 <button onclick="sell('38')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('38')">buy</button>
             </div>
         </div>
@@ -535,10 +574,11 @@
             <div>
                 <h3>Skyscraper</h3>
                 <p>$<span id="price39">80,000,000</span></p>
+                <p>You own: <span class="ownedAmount" data-id="39">0</span></p>
             </div>
             <div>
                 <button onclick="sell('39')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('39')">buy</button>
             </div>
         </div>
@@ -548,10 +588,11 @@
             <div>
                 <h3>Cruise Ship</h3>
                 <p>$<span id="price40">500,000,000</span></p>
+                <p>You own: <span class="ownedAmount" data-id="40">0</span></p>
             </div>
             <div>
                 <button onclick="sell('40')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('40')">buy</button>
             </div>
         </div>
@@ -561,10 +602,11 @@
             <div>
                 <h3>NBA Team</h3>
                 <p>$<span id="price41">3,000,000,000</span></p>
+                <p>You own: <span class="ownedAmount" data-id="41">0</span></p>
             </div>
             <div>
                 <button onclick="sell('41')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('41')">buy</button>
             </div>
         </div>
@@ -574,10 +616,11 @@
             <div>
                 <h3>Hollywood Movie Production</h3>
                 <p>$<span id="price42">10,000,000,000</span></p>
+                <p>You own: <span class="ownedAmount" data-id="42">0</span></p>
             </div>
             <div>
                 <button onclick="sell('42')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('42')">buy</button>
             </div>
         </div>
@@ -587,10 +630,11 @@
             <div>
                 <h3>Space Station</h3>
                 <p>$<span id="price43">50,000,000,000</span></p>
+                <p>You own: <span class="ownedAmount" data-id="43">0</span></p>
             </div>
             <div>
                 <button onclick="sell('43')">sell</button>
-                <input type="number" name="" id="customNum" placeholder="">
+                <input type="number" name="" class="customNum" placeholder="">
                 <button onclick="buy('43')">buy</button>
             </div>
         </div>
