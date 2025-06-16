@@ -3,11 +3,24 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
 export const register = async (req, res) => {
-  const { username, email, password } = req.body;
+  const { username, email, password, img_url } = req.body;
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = await User.create({ username, email, password: hashedPassword, img_url });
-    res.status(201).json({ message: 'User registered!', user: newUser });
+    const newUser = await User.create({
+      username,
+      email,
+      password: hashedPassword,
+      img_url
+    });
+    res.status(201).json({
+      message: 'User registered!',
+      user: {
+        username: newUser.username,
+        email: newUser.email,
+        img_url: newUser.img_url,
+        money: newUser.money
+      }
+    });
   } catch (err) {
     res.status(500).json({ message: 'Registration failed.', error: err.message });
   }

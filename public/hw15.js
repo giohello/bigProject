@@ -13,18 +13,34 @@ let num7 = 128000000000
 let num8 = 121000000000
 let num9 = 116000000000
 let num10 = 114000000000
+const buySound = document.getElementById('buySound');
+const sellSound = document.getElementById('sellSound');
+const idleMusic = document.getElementById('idleMusic');
+const toggleBtn = document.getElementById('toggleIdleMusic');
 
 let currentMoney = 0;
+let idleMusicOn = false;
+let hasInteracted = false;
 
 select.addEventListener('change', () => {
     let answer = select.value;
 
     if (answer === 'user') {
-        const user = JSON.parse(localStorage.getItem('user'));
-        img1.setAttribute('src', user?.img_url || './img/Default_pfp.svg.png');
-        h21.innerHTML = user?.username || 'User';
-        inp.style.display = "block";
-        updateMoney();
+    const user = JSON.parse(localStorage.getItem('user'));
+    const rawImgUrl = user?.img_url;
+    const proxyUrl = rawImgUrl
+        ? `https://images.weserv.nl/?url=${encodeURIComponent(rawImgUrl)}&output=webp`
+        : './img/Default_pfp.svg.png';
+
+    img1.setAttribute('src', proxyUrl);
+
+    img1.onerror = () => {
+        img1.setAttribute('src', './img/Default_pfp.svg.png');
+    };
+
+    h21.innerHTML = user?.username || 'User';
+    inp.style.display = "block";
+    updateMoney();
     } else if (answer !== '') {
         img1.setAttribute('src', './img/Default_pfp.svg.png')
         let amountMatch = answer.match(/\d+/g);
@@ -37,7 +53,7 @@ select.addEventListener('change', () => {
     }
 
     if (answer === 'Elon Musk') {
-        img1.setAttribute('src', "./img/richy pfp/elon-musk-gettyimages-2147789844-web-675b2c17301ea.jpg");
+        img1.setAttribute('src', "./img/richy pfp/elon-musk-gettyimages-2147789844-web-675b2c17301ea.png");
         currentMoney = num1;
         money.innerHTML = `$${currentMoney.toLocaleString()}`;
     }
@@ -140,9 +156,20 @@ window.addEventListener('DOMContentLoaded', () => {
   const inp = document.getElementById('custom');
   const userOption = document.getElementById('userOption');
 
-  if (user) {
+    if (user) {
     if (nameEl) nameEl.textContent = user.username;
-    if (imgEl) imgEl.src = user.img_url;
+
+    if (imgEl) {
+      const rawImgUrl = user.img_url;
+      const proxyUrl = rawImgUrl
+          ? `https://images.weserv.nl/?url=${encodeURIComponent(rawImgUrl)}&output=webp`
+          : './img/Default_pfp.svg.png';
+
+      imgEl.src = proxyUrl;
+      imgEl.onerror = () => {
+        imgEl.src = './img/Default_pfp.svg.png';
+      };
+    }
     if (userOption) userOption.textContent = user.username;
 
     select.value = 'user';
@@ -180,7 +207,8 @@ function buy(itemId) {
     localStorage.setItem('user', JSON.stringify(user));
     updateUserMoney();
     updateOwnedAmounts();
-
+    buySound.currentTime = 0;
+    buySound.play();
 }
 
 function sell(itemId) {
@@ -209,6 +237,8 @@ function sell(itemId) {
     localStorage.setItem('user', JSON.stringify(user));
     updateUserMoney();
     updateOwnedAmounts();
+    sellSound.currentTime = 0;
+    sellSound.play();
 }
 
 function updateUserMoney() {
@@ -236,3 +266,24 @@ function updateUserMoney() {
           if (!data.ok) console.warn('Money not saved on server');
       }).catch(err => console.error('Failed to save money:', err));
 }
+
+
+toggleBtn.addEventListener('click', () => {
+    if (!hasInteracted) {
+        hasInteracted = true;
+        if (idleMusicOn) {
+            idleMusic.volume = 0.4;
+            idleMusic.play().catch(err => console.warn("Audio play blocked:", err));
+        }
+    }
+
+    idleMusicOn = !idleMusicOn;
+
+    if (idleMusicOn) {
+        idleMusic.play();
+        toggleBtn.textContent = 'Music: ON';
+    } else {
+        idleMusic.pause();
+        toggleBtn.textContent = 'Music: OFF';
+    }
+});

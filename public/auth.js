@@ -13,9 +13,15 @@ async function register() {
     });
 
     const data = await response.json();
+
     if (response.ok) {
+      localStorage.setItem('user', JSON.stringify(data.user));
       msg.style.color = 'green';
-      msg.textContent = 'Registration successful!';
+      msg.textContent = 'Registration successful! Redirecting...';
+
+      setTimeout(() => {
+        window.location.href = 'index.html';
+      }, 1000);
     } else {
       msg.style.color = 'red';
       msg.textContent = data.message || 'Registration failed.';

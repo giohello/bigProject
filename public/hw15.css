@@ -12,6 +12,7 @@ body {
     background-color: #f4f4f9;
     color: #333;
     position: relative;
+    background-image:radial-gradient(rgba(244, 244, 249, 0.3), rgba(244, 244, 249, 0.3)), url('https://media.istockphoto.com/id/1368169112/vector/money-green-seamless-pattern-vector-background-included-line-icons-as-piggy-bank-wallet.jpg?s=612x612&w=0&k=20&c=qjIUpnUPtiKGBgLnXGLQ_4qQUq36OvP82DIFTAdch70=');
 }
 
 .h11 {
@@ -19,6 +20,18 @@ body {
     font-weight: 600;
     margin-top: 70px;
     color: #2c3e50;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.h11:hover {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
 }
 
 .choice {
@@ -168,7 +181,7 @@ input[type="number"] {
     border: none;
     padding: 10px 20px;
     border-radius: 8px;
-    cursor: pointer;
+    cursor: url('./img/buySell/sell-removebg-preview.png') 16 16, pointer;
     font-size: 18px;
     transition: background-color 0.3s ease;
 }
@@ -179,7 +192,7 @@ input[type="number"] {
     border: none;
     padding: 10px 20px;
     border-radius: 8px;
-    cursor: pointer;
+    cursor: url('./img/buySell/buy-removebg-preview.png') 16 16, pointer;
     font-size: 18px;
     transition: background-color 0.3s ease;
 }
@@ -262,4 +275,185 @@ input[type="number"] {
 .back-btn:hover {
     background: linear-gradient(180deg, #7f8c8d, #707b7c);
     transform: translateY(-1px);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #2ecc71, #1abc9c);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #27ae60, #16a085);
+}
+
+.preloader-wrapper * {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+.preloader-wrapper {
+	--hue: 145;
+	--bg: hsl(var(--hue),10%,90%);
+	--fg: hsl(var(--hue),10%,10%);
+	--primary: hsl(var(--hue),63%,49%);
+	--trans-dur: 0.3s;
+	font-size: calc(16px + (20 - 16) * (100vw - 320px) / (1280 - 320));
+	position: fixed;
+	inset: 0;
+	background-color: var(--bg);
+	color: var(--fg);
+	z-index: 9999;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: background-color var(--trans-dur), color var(--trans-dur);
+}
+
+.preloader {
+	text-align: center;
+	max-width: 20em;
+	width: 100%;
+}
+.preloader__text {
+	position: relative;
+	height: 1.5em;
+}
+.preloader__msg {
+	animation: msg 0.3s 13.7s linear forwards;
+	position: absolute;
+	width: 100%;
+}
+.preloader__msg--last {
+	animation-direction: reverse;
+	animation-delay: 14s;
+	visibility: hidden;
+}
+.cart {
+	display: block;
+	margin: 0 auto 1.5em auto;
+	width: 8em;
+	height: 8em;
+}
+.cart__lines,
+.cart__top,
+.cart__wheel1,
+.cart__wheel2,
+.cart__wheel-stroke {
+	animation: cartLines 2s ease-in-out infinite;
+}
+.cart__lines {
+	stroke: var(--primary);
+}
+.cart__top {
+	animation-name: cartTop;
+}
+.cart__wheel1 {
+	animation-name: cartWheel1;
+	transform: rotate(-0.25turn);
+	transform-origin: 43px 111px;
+}
+.cart__wheel2 {
+	animation-name: cartWheel2;
+	transform: rotate(0.25turn);
+	transform-origin: 102px 111px;
+}
+.cart__wheel-stroke {
+	animation-name: cartWheelStroke
+}
+.cart__track {
+	stroke: hsla(var(--hue),10%,10%,0.1);
+	transition: stroke var(--trans-dur);
+}
+@media (prefers-color-scheme: dark) {
+	.preloader-wrapper {
+		--bg: hsl(var(--hue),10%,10%);
+		--fg: hsl(var(--hue),10%,90%);
+	}
+	.cart__track {
+		stroke: hsla(var(--hue),10%,90%,0.1);
+	}
+}
+@keyframes msg {
+	from {
+		opacity: 1;
+		visibility: visible;
+	}
+	99.9% {
+		opacity: 0;
+		visibility: visible;
+	}
+	to {
+		opacity: 0;
+		visibility: hidden;
+	}
+}
+@keyframes cartLines {
+	from,
+	to {
+		opacity: 0;
+	}
+	8%,
+	92% {
+		opacity: 1;
+	}
+}
+@keyframes cartTop {
+	from {
+		stroke-dashoffset: -338;
+	}
+	50% {
+		stroke-dashoffset: 0;
+	}
+	to {
+		stroke-dashoffset: 338;
+	}
+}
+@keyframes cartWheel1 {
+	from {
+		transform: rotate(-0.25turn);
+	}
+	to {
+		transform: rotate(2.75turn);
+	}
+}
+@keyframes cartWheel2 {
+	from {
+		transform: rotate(0.25turn);
+	}
+	to {
+		transform: rotate(3.25turn);
+	}
+}
+@keyframes cartWheelStroke {
+	from,
+	to {
+		stroke-dashoffset: 81.68;
+	}
+	50% {
+		stroke-dashoffset: 40.84;
+	}
+}
+
+#toggleIdleMusic {
+    position: fixed;
+    bottom: 20px;
+    left: 15px;
+    padding: 10px 15px;
+    background: linear-gradient(180deg, #2ecc71, #1abc9c);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 1000;
 }
