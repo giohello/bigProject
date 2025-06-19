@@ -38,7 +38,7 @@
     <input type="text" id="username" placeholder="Username (if you are registering)">
     <input type="email" id="email" placeholder="Email">
     <input type="password" id="password" placeholder="Password">
-    <input type="text" name="img_url" id="img_url" placeholder="Image URL (avoid JPGs for better quality, this is optional)">
+    <input type="text" name="img_url" id="img_url" placeholder="Image URL (use an SVG for better quality, this is optional)">
 
     <button onclick="register()" style="background: linear-gradient(180deg, #3aa9f3, #1d83c7);">Register</button>
     <button onclick="login()" style="background: linear-gradient(180deg, #2ecc71, #1abc9c)">Login</button>
@@ -48,7 +48,7 @@
 
   <script src="auth.js"></script>
   <script>
-	const MIN_LOADER_TIME = 1200; // milliseconds
+	const MIN_LOADER_TIME = 1200;
 
 const loaderStart = performance.now();
 

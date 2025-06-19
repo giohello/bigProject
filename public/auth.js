@@ -48,6 +48,7 @@ async function login() {
 
     if (response.ok) {
       localStorage.setItem('user', JSON.stringify(data.user));
+      localStorage.setItem('token', data.token);
       msg.style.color = 'green';
       msg.textContent = 'Login successful! Redirecting...';
 

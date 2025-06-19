@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend+Deca:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
     padding: 0;
     margin: 0;
@@ -239,7 +241,6 @@ input[type="number"] {
     transition: background-color 0.3s ease;
 }
 .auth-btn {
-    margin-top: 30px;
     background: linear-gradient(180deg, #3aa9f3, #1d83c7);
     color: white;
     text-decoration: none;
@@ -247,15 +248,15 @@ input[type="number"] {
     border-radius: 10px;
     font-size: 18px;
     font-weight: 500;
-    transition: background 0.3s ease, transform 0.2s;
+    transition: 0.3s ease, transform 0.2s;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     position: absolute;
-    top: 20px;
+    font-family: "Inter", sans-serif;
+    top: 50px;
     right: 20px;
 }
 
 .auth-btn:hover {
-    background: linear-gradient(180deg, #3aa9f3, #1d83c7);
     transform: translateY(-2px);
 }
 
@@ -268,7 +269,7 @@ input[type="number"] {
     padding: 10px 20px;
     border-radius: 8px;
     font-weight: 500;
-    transition: background 0.3s ease, transform 0.2s;
+    transition: 0.3s ease, transform 0.2s;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -456,4 +457,26 @@ input[type="number"] {
     cursor: pointer;
     font-size: 16px;
     z-index: 1000;
+}
+
+.logout-btn {
+    position: absolute;
+    top: 50px;
+    right: 230px;
+    background: linear-gradient(180deg, #ff4d4d, #ff1a1a);
+    color: white;
+    border: none;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s ease, transform 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logout-btn:hover {
+    transform: translateY(-2px);
 }

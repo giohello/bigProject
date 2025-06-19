@@ -3,6 +3,7 @@ let img1 = document.getElementById('personImg');
 let h21 = document.getElementById('personName');
 let inp = document.getElementById('custom');
 let money = document.getElementById('money');
+let logoutBtn = document.getElementById('logoutBtn')
 let num1 = 195000000000
 let num2 = 194000000000
 let num3 = 180000000000
@@ -21,6 +22,12 @@ const toggleBtn = document.getElementById('toggleIdleMusic');
 let currentMoney = 0;
 let idleMusicOn = false;
 let hasInteracted = false;
+
+logoutBtn.addEventListener('click', () => {
+  localStorage.removeItem('token');
+  localStorage.removeItem('user');
+  window.location.reload();
+});
 
 select.addEventListener('change', () => {
     let answer = select.value;
@@ -243,18 +250,22 @@ function sell(itemId) {
 
 function updateUserMoney() {
     const user = JSON.parse(localStorage.getItem('user'));
+    const token = localStorage.getItem('token');
+
     if (!user) return;
 
     user.money = currentMoney;
 
     if (!user.inventory) user.inventory = {};
-
     localStorage.setItem('user', JSON.stringify(user));
+
+    if (!token) return;
 
     fetch('/api/auth/money', {
         method: 'PATCH',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
             email: user.email,
