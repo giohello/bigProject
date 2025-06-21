@@ -32,7 +32,7 @@ function getLoggedInUser() {
 
 async function loadBillionaires() {
   try {
-    const res = await fetch("/api/billionaires");
+    const res = await fetch("http://localhost:3000/api/billionaires");
     billionaires = await res.json();
     const placeholder = document.createElement("option");
     placeholder.value = "";
@@ -69,7 +69,6 @@ select.addEventListener("change", () => {
   const val = select.value;
   let img, name, amount;
 
-  // Save user's money into userMoney before switching away from 'user'
   if (previousSelect === "user") {
     userMoney = currentMoney;
     const user = getLoggedInUser();
@@ -226,7 +225,7 @@ function updateUserMoney() {
 
   if (!token) return;
 
-  fetch("/api/auth/money", {
+  fetch("http://localhost:3000/api/auth/money", {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",

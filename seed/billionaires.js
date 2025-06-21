@@ -1,4 +1,3 @@
-// seed/billionaires.js (run this once to populate the DB)
 import mongoose from "mongoose";
 import { Billionaire } from "../models/Billionaire.js";
 
